@@ -73,3 +73,6 @@ export function ProductCart(props : ProductCartProps){
         </Card>
     )
 }
+
+//TODO: create filters for products
+// check if the commits are being accounted on github

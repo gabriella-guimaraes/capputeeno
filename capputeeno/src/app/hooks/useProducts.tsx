@@ -2,7 +2,6 @@ import { ProductsFetchResponse } from "@/types/products_response";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 
-//TODO: API response undefined? - the function only works when the URL is defined on this archive?? 1h29
 
 //const API_URL = process.env.NEXT_PUBLIC_API_URL_ as string;
 const API_URL = "http://localhost:3333"
