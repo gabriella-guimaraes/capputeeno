@@ -1,6 +1,3 @@
-![image](https://user-images.githubusercontent.com/40845824/121069742-3accdb00-c7a4-11eb-87d0-3dc47e433762.png)
-
-
 # 🚀 Front end challenge
 
 Bem-vindo(a). Este é o desafio Front end!
