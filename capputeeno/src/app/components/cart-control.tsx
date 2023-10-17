@@ -6,26 +6,27 @@ import { useRouter } from "next/navigation";
 const CartCount = styled.span`
     width: 17px;
     height: 17px;
+    border-radius: 100%;
+    padding: 0 5px;
+    font-size: 10px;
     background-color: var(--delete-color);
     color: white;
-    margin-left: -10px;
-    font-size: 10px;
-    padding: 0 5px;
+    margin-left: -30px;
 `
 const Container = styled.div`
     position: relative;
 `
 
 export function CartControl(){
-    const router = useRouter()
+    // const router = useRouter()
     const { value } = useLocalStorage('cart-items', [])
 
-    const handleNavigateToCart = () => {
-        router.push("/cart")
-    }
+    // const handleNavigateToCart = () => {
+    //     router.push("/cart")
+    // }
 
     return (
-        <Container onClick={handleNavigateToCart}>
+        <Container>
             <CartIcon/>
             {value.length > 0 && <CartCount>{value.length}</CartCount>}
         </Container>
