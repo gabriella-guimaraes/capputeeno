@@ -36,6 +36,7 @@ const FilterContainer = styled.div`
     padding: 12px 16px;
     list-style: none;
     top: 100%;
+    right: 8px;
     z-index: 999;
 
     li {
