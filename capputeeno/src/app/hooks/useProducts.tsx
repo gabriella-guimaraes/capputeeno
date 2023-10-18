@@ -8,7 +8,7 @@ import { useDeferredValue } from "react";
 
 //const API_URL = process.env.NEXT_PUBLIC_API_URL_ as string;
 const API_URL = "http://localhost:3333"
-console.log(API_URL);
+//console.log(API_URL);
 
 const fetcher = (query: string): AxiosPromise<ProductsFetchResponse> => {
   return axios.post(API_URL, {query})
@@ -22,7 +22,8 @@ export function useProducts() {
   const query = mountQuery(type, priority);
   const { data } = useQuery({
     queryFn: () => fetcher(query),
-    queryKey: ['products', type, priority]
+    queryKey: ['products', type, priority],
+    staleTime: 1000 * 60 * 1
   });
 
   const products = data?.data?.data?.allProducts

@@ -23,7 +23,7 @@ export function useProduct(id: string){
     const { data } = useQuery({
         queryFn: () => fetcher(id),
         queryKey: ['product', id],
-        enabled:!!id,   //use the function only when the id = true
+        enabled:!!id,   //use the method only when the id = true
         staleTime: 1000 * 60 * 5
     })
 

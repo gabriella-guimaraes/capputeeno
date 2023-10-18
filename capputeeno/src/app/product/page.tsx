@@ -107,14 +107,33 @@ const ProductInfo = styled.div`
   }
 `;
 
-export default function Product({
-  searchParams,
-}: {
-  searchParams: { id: string };
-}) {
+export default function Product({  searchParams,}: {  searchParams: { id: string };}) {
   //console.log(params);
   const { data } = useProduct(searchParams.id);
-  console.log(data);
+  //console.log(data);
+
+  const handleAddToCart = () => {
+    let cartItems = localStorage.getItem('cart-items');
+    if(cartItems){
+      let cartItemsArray = JSON.parse(cartItems);
+
+      //check if the product is already added to the cart
+      let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
+
+      if (existingProductIndex != -1){
+        cartItemsArray[existingProductIndex].quantity += 1;
+      } else {
+        cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
+      }
+
+      localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
+    } else {
+      const newCart = [{...data, quantity: 1, id: searchParams.id}]
+
+      localStorage.setItem('cart-items', JSON.stringify(newCart));
+    }
+  }
+
   return (
     <DefaultPageLayout>
       <Container>
@@ -135,7 +154,7 @@ export default function Product({
                 <p>{data?.description}</p>
               </div>
             </ProductInfo>
-            <button>
+            <button onClick={handleAddToCart}>
                 <ShopBagIcon/>
                 Adicionar ao carrinho
             </button>
