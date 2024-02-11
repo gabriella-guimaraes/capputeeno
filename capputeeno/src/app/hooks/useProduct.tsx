@@ -2,7 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { ProductFetchResponse } from "../types/product";
 
-const API_URL = "http://localhost:3333"
+const API_URL = "https://api-capputeeno.vercel.app/"
+//const API_URL = "http://localhost:3333"
 //console.log(API_URL);
 
 const fetcher = (productId: string): AxiosPromise<ProductFetchResponse> => {
