@@ -13,20 +13,23 @@ const CartCount = styled.span`
     color: white;
     margin-left: -30px;
 `
-const Container = styled.div`
+const Container = styled.button`
     position: relative;
+    cursor: pointer;
+    border: none;
+    background: transparent;
 `
 
 export function CartControl(){
-    // const router = useRouter()
+    const router = useRouter()
     const { value } = useLocalStorage('cart-items', [])
 
-    // const handleNavigateToCart = () => {
-    //     router.push("/cart")
-    // }
+    const handleNavigateToCart = () => {
+        router.push("/cart")
+    }
 
     return (
-        <Container>
+        <Container onClick={handleNavigateToCart}>
             <CartIcon/>
             {value.length > 0 && <CartCount>{value.length}</CartCount>}
         </Container>
